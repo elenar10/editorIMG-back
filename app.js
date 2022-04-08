@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import favoritesRouter from './src/IMG/router.img.js';
-
+import cors from 'cors';
 
 
 dotenv.config(); 
