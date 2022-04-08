@@ -1,6 +1,7 @@
 import express from 'express';
 import multer from 'multer';
-import {setNewFavorite} from './controller.img.js';
+import { deleteOneFavorite, getAllImagesByUser, setNewFavorite, getAllFavorites, getOneImageById } from './controller.img.js';
+
 
 
 const router = express.Router();
@@ -21,8 +22,15 @@ const upload = multer({
 
 
 
-router.route('/')
-    .post(upload, setNewFavorite);
+router.route("/")
+  .get(getAllImagesByUser)
+  .post(upload, setNewFavorite)
+  .delete(deleteOneFavorite);
 
+router.route('/edit/:id')
+  .get(getOneImageById);
+
+router.route("/all")
+    .get(getAllFavorites);
 
 export default router;
